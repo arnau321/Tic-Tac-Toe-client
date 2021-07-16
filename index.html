@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Tic-Tac-Toe-Project</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,64 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>TIC-TAC-TOE</h1>
+
+      <!--
+        Enroll form
+          Sign-up button which hides enroll/login forms and allows game play.
+          Enroll form submit button.
+          Submit button will allow play.
+          Enroll form hidden after login.-->
+          <form id="sign-up">
+            <h2>Sign Up</h2>
+            <label>Email</label>
+            <input name="credentials[email]" type="email">
+            <label>Password</label>
+            <input name="credentials[password]" type="password">
+            <label>Password Conformation</label>
+            <input name="credentials[password_confirmation]" type="password">
+            <input type="submit" value="Sign-Up">
+         </form>
+
+      <!--Main page-login form
+            Login form  email and password fields.
+            Login form login button button.
+            Submit button will close allow game play.
+            Enroll form hidden after login.-->
+          <form id="sign-in">
+            <h2>Sign In</h2>
+            <label>Email</label>
+            <input name="credentials[email]" type="email">
+            <label>Password</label>
+            <input name="credentials[password]" type="password">
+            <input type="submit" value="Sign-In">
+          </form>
+        </body>
+
+        <!--sign out button-->
+          <button id="sign-out" type="button">Sign Out</button>
+        <!--message to user-->
+        <h3 id="message"></h3>
+
+
+
+        <!--Main page:
+          Visible parts after login/initial enrollment: game play area,
+          email identifier, log out button, game start button.
+          Email identifier - no function
+          Log out button - logs user out and returns to main page.
+            After log out - login and enroll buttons visible, game hidden.
+          Start button - starts new game/erases old game and starts new game.
+
+          Game:
+            Only visible after login or after initial enrollment.
+            Not visible after logout.
+            X and O alternate start between games.
+            When game ends modal will display if X or O won,
+              or if tie.
+            When game ends can no longer add to game board until,
+              use start game button.
+
+      -->
     </body>
-</html>
+    </html>
