@@ -58,14 +58,10 @@ const clearGameBoard = function () {
 }
 
 const returnId = function () {
-  console.log()
-  const id = $(this).data('id')
+  const id = parseInt($(this).data('id'))
   console.log(id)
-  if (gameBoard[id] === '') {
-    gameBoard[id] = 'X'
-    $('.box data-id = id').text('X')
-    console.log(gameBoard)
-  }
+  gameBoard[id] = 'x'
+  console.log(gameBoard)
 }
 module.exports = {
   onSignUp,
