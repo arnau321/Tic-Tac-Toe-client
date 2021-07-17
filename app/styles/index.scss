@@ -1,1 +1,16 @@
 @import '~bootstrap/scss/bootstrap';
+body {
+  background-color: grey
+}
+h1{
+  text-align: center;
+}
+
+.box {
+  align-items: center;
+  border: 1px solid black;
+  background-color: green;
+  display: flex;
+  height: 180px;
+  justify-content: center;
+}

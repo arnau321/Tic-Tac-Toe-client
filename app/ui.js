@@ -13,12 +13,15 @@ const onSignUpFailure = function () {
 }
 const onSignInSuccess = function (response) {
   console.log('in onSignInSuccess ', response)
-  $('#message').text(`Sign in successful ${response.user.email}`)
+  $('#welcome-message').text(`Shall we play a game ${response.user.email}?`)
+  $('#fun-message').text('How about GLOBAL THERMONUCLEAR WAR?')
   store.token = response.user.token
   $('#sign-in').trigger('reset')
+  $('#message').hide()
   $('#sign-in').hide()
   $('#sign-up').hide()
   $('#sign-out').show()
+  $('#start-game').show()
 }
 
 const onSignInFailure = function () {
@@ -32,6 +35,11 @@ const onSignOutSuccess = function (response) {
   $('#sign-in').show()
   $('#sign-up').show()
   $('#sign-out').hide()
+  $('#message').hide()
+  $('#welcome-message').hide()
+  $('#start-game').hide()
+  $('#fun-message').hide()
+
 }
 
 const onSignOutFailure = function () {

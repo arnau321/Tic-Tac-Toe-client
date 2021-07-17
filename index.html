@@ -44,15 +44,13 @@
             <input name="credentials[password]" type="password">
             <input type="submit" value="Sign-In">
           </form>
-        </body>
-
-        <!--sign out button-->
-          <button id="sign-out" type="button">Sign Out</button>
         <!--message to user-->
         <h3 id="message"></h3>
-
-
-
+        <h3 id="welcome-message"></h3>
+        <h3 id="fun-message"></h3>
+        <!--sign out button-->
+        <button id="sign-out" type="button">Sign Out</button>
+        <button id="start-game" type="button">I'd Rather Play Tic-Tac-Toe</button>
         <!--Main page:
           Visible parts after login/initial enrollment: game play area,
           email identifier, log out button, game start button.
@@ -68,8 +66,20 @@
             When game ends modal will display if X or O won,
               or if tie.
             When game ends can no longer add to game board until,
-              use start game button.
-
-      -->
+              use start game button.-->
+        <!--Game Board-->
+        <div class="container">
+        <div class="row">
+          <div class="col-4 box" data-id0="0"></div>
+          <div class="col-4 box" data-id1="1"></div>
+          <div class="col-4 box" data-id2="2"></div>
+          <div class="col-4 box" data-id="3">x</div>
+          <div class="col-4 box" data-id="4">o</div>
+          <div class="col-4 box" data-id="5">x</div>
+          <div class="col-4 box" data-id="6"></div>
+          <div class="col-4 box" data-id="7"></div>
+          <div class="col-4 box" data-id="8"></div>
+        </div>
+      </div>
     </body>
     </html>
