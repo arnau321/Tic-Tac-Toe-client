@@ -31,7 +31,7 @@ const onSignOut = function () {
 // variables
 let gameBoard = ['', 'x', '', '', '', '', '', '', '']
 const emptyGameBoard = ['', '', '', '', '', '', '', '', '']
-const player = 'X'
+let player
 let gameCounter = 0
 const turnCounter = 0
 let active = false
@@ -41,12 +41,17 @@ const onStartGame = function () {
   clearGameBoard()
   active = true
   gameCounter++
+  if (gameCounter % 2 === 0) {
+    player = 'O'
+  } else {
+    player = 'X'
+  }
 
   // send new game to api goes here
   while (active === true) {
     console.log(gameBoard)
     console.log(active)
-    $('.box').on('click', returnId)
+    $('.box').on('click', setGamePiece)
     active = false
   }
 }
@@ -57,16 +62,21 @@ const clearGameBoard = function () {
   return gameBoard
 }
 
-const returnId = function () {
-  console.log()
-  const id = $(this).data('id')
-  console.log(id)
+const setGamePiece = function () {
+  const id = parseInt($(this).data('id'))
   if (gameBoard[id] === '') {
-    gameBoard[id] = 'X'
-    $('.box data-id = id').text('X')
+    gameBoard[id] = player
     console.log(gameBoard)
-  }
+    if (player === 'X') {
+      player = 'O'
+    } else {
+      player = 'X'
+    }
+  } else { console.log('nope') }
 }
+
+
+
 module.exports = {
   onSignUp,
   onSignIn,
