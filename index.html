@@ -12,15 +12,20 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>TIC-TAC-TOE</h1>
+      <!--sign out button-->
+      <div class="top">
+        <button id="sign-out" type="button">Sign Out</button>
+        <h1>TIC-TAC-TOE</h1>
+        <!--messages to user-->
+        <h3 id="message"></h3>
+        <h3 id="welcome-message"></h3>
+        <h3 id="fun-message"></h3>
+      </div>
 
-      <!--
-        Enroll form
-          Sign-up button which hides enroll/login forms and allows game play.
-          Enroll form submit button.
-          Submit button will allow play.
-          Enroll form hidden after login.-->
-          <form id="sign-up">
+      <div class="container" id="enroll">
+        <div class="row">
+          <!--Enroll form-->
+          <form id="sign-up" class="col-6 form">
             <h2>Sign Up</h2>
             <label>Email</label>
             <input name="credentials[email]" type="email">
@@ -28,61 +33,44 @@
             <input name="credentials[password]" type="password">
             <label>Password Conformation</label>
             <input name="credentials[password_confirmation]" type="password">
-            <input type="submit" value="Sign-Up">
-         </form>
+            <input id="sign-up-submit-button" type="submit" value="Sign-Up">
+        </form>
 
-      <!--Main page-login form
-            Login form  email and password fields.
-            Login form login button button.
-            Submit button will close allow game play.
-            Enroll form hidden after login.-->
-          <form id="sign-in">
-            <h2>Sign In</h2>
-            <label>Email</label>
-            <input name="credentials[email]" type="email">
-            <label>Password</label>
-            <input name="credentials[password]" type="password">
-            <input type="submit" value="Sign-In">
-          </form>
-        <!--message to user-->
-        <h3 id="message"></h3>
-        <h3 id="welcome-message"></h3>
-        <h3 id="fun-message"></h3>
-        <!--sign out button-->
-        <button id="sign-out" type="button">Sign Out</button>
-        <button id="start-game" type="button">I'd Rather Play Tic-Tac-Toe</button>
-        <!--Main page:
-          Visible parts after login/initial enrollment: game play area,
-          email identifier, log out button, game start button.
-          Email identifier - no function
-          Log out button - logs user out and returns to main page.
-            After log out - login and enroll buttons visible, game hidden.
-          Start button - starts new game/erases old game and starts new game.
-
-          Game:
-            Only visible after login or after initial enrollment.
-            Not visible after logout.
-            X and O alternate start between games.
-            When game ends modal will display if X or O won,
-              or if tie.
-            When game ends can no longer add to game board until,
-              use start game button.-->
-        <!--Game Board-->
-
-        <div class="container">
-        <div class="row" id="listen">
-          <div id="0" class="col-4 box"></div>
-          <div id="1" class="col-4 box"></div>
-          <div id="2" class="col-4 box"></div>
-          <div id="3" class="col-4 box"></div>
-          <div id="4" class="col-4 box">O</div>
-          <div id="5" class="col-4 box">X</div>
-          <div id="6" class="col-4 box"></div>
-          <div id="7" class="col-4 box"></div>
-          <div id="8" class="col-4 box"></div>
-        </div>
+        <!--Main page-login form-->
+        <form id="sign-in" class="col-6 form">
+          <h2>Sign In</h2>
+          <label>Email</label>
+          <input name="credentials[email]" type="email">
+          <label>Password</label>
+          <input name="credentials[password]" type="password">
+          <input id="sign-in-submit-button" type="submit" value="Sign-In">
+        </form>
       </div>
-    </body>
-    </html>
+    </div>
+
+    <!--start game button-->
+    <div class="container">
+      <div class="row" id="start-game-button">
+        <button id="start-game" type="button">I'd Like to Play Tic-Tac-Toe</button>
+      </div>
+    </div>
+    <!--Game Board-->
+    <div class="container" id="game-board">
+      <div class="row" id="listen">
+        <div id="0" class="col-4 box"></div>
+        <div id="1" class="col-4 box"></div>
+        <div id="2" class="col-4 box"></div>
+        <div id="3" class="col-4 box"></div>
+        <div id="4" class="col-4 box">O</div>
+        <div id="5" class="col-4 box">X</div>
+        <div id="6" class="col-4 box"></div>
+        <div id="7" class="col-4 box"></div>
+        <div id="8" class="col-4 box"></div>
+      </div>
+      <h3 id="message-bottom"></h3>
+     </div>
+
+  </body>
+</html>
 
 

@@ -36,7 +36,10 @@ const onSignOut = function () {
 }
 
 const onStartGame = function () {
-  console.log('in onStartGame')
+  $('#message-bottom').hide()
+  $('#fun-message').hide()
+  $('#welcome-message').hide()
+  $('#game-board').show()
   gameCounter++
   clearGameBoard()
   // checks game counter to set initial player
@@ -48,11 +51,10 @@ const onStartGame = function () {
   // send new game to api goes here
   // creates event listeners on boxes
   eventListener.addEventListener('click', setGamePiece)
-  // $('.box').on('click', setGamePiece)
 }
 // for onStartGameFunction
 const setGamePiece = function (event) {
-  console.log('in setGP')
+
   moveCounter++
   const id = event.target.id
   console.log(id)
@@ -62,17 +64,17 @@ const setGamePiece = function (event) {
     // send game update to api goes here
     event.target.innerText = player
     win = checkForWin(gameBoard, player)
-    console.log(win)
-    console.log('mc = ', moveCounter)
     if (moveCounter === 9) {
       moveCounter = 0
       eventListener.removeEventListener('click', setGamePiece)
-      console.log('tie')
+      $('#message-bottom').show()
+      $('#message-bottom').text('Tie')
     }
     if (win === true) {
       eventListener.removeEventListener('click', setGamePiece)
       moveCounter = 0
-      console.log('Wins ', player)
+      $('#message-bottom').show()
+      $('#message-bottom').text(player + ' Wins!!!')
     } else {
       // change player
       player = player === 'X' ? 'O' : 'X'
@@ -94,42 +96,35 @@ const checkForWin = function (arrayOfBoxes, player) {
   // horizontal wins
   if ((arrayOfBoxes[0] === arrayOfBoxes[1]) && (arrayOfBoxes[1] === arrayOfBoxes[2]) &&
       (arrayOfBoxes[0] === player)) {
-    console.log('win h1')
     return true
   } else if ((arrayOfBoxes[3] === arrayOfBoxes[4]) && (arrayOfBoxes[4] === arrayOfBoxes[5]) &&
       (arrayOfBoxes[3] === player)) {
-    console.log(' win h2')
     return true
   } else if ((arrayOfBoxes[6] === arrayOfBoxes[7]) && (arrayOfBoxes[7] === arrayOfBoxes[8]) &&
       (arrayOfBoxes[6] === player)) {
-    console.log('win h3')
     return true
   // vertical wins
   } else if ((arrayOfBoxes[0] === arrayOfBoxes[3]) && (arrayOfBoxes[3] === arrayOfBoxes[6]) &&
       (arrayOfBoxes[0] === player)) {
-    console.log('win v1')
     return true
   } else if ((arrayOfBoxes[1] === arrayOfBoxes[4]) && (arrayOfBoxes[4] === arrayOfBoxes[7]) &&
       (arrayOfBoxes[1] === player)) {
-    console.log('win v2')
     return true
   } else if ((arrayOfBoxes[2] === arrayOfBoxes[5]) && (arrayOfBoxes[5] === arrayOfBoxes[8]) &&
       (arrayOfBoxes[2] === player)) {
-    console.log('win v3')
     return true
   // diagonal wins
   } else if ((arrayOfBoxes[0] === arrayOfBoxes[4]) && (arrayOfBoxes[4] === arrayOfBoxes[8]) &&
       (arrayOfBoxes[0] === player)) {
-    console.log('win d1')
     return true
   } else if ((arrayOfBoxes[2] === arrayOfBoxes[4]) && (arrayOfBoxes[4] === arrayOfBoxes[6]) &&
       (arrayOfBoxes[2] === player)) {
-    console.log('win d2')
     return true
   } else {
     return false
   }
 }
+
 module.exports = {
   onSignUp,
   onSignIn,

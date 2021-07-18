@@ -22,7 +22,6 @@ const onSignInSuccess = function (response) {
   $('#sign-up').hide()
   $('#sign-out').show()
   $('#start-game').show()
-  $('.container').show()
 }
 
 const onSignInFailure = function () {
@@ -30,17 +29,15 @@ const onSignInFailure = function () {
   $('#message').text('Signed in failed')
   $('#sign-in').trigger('reset')
 }
-const onSignOutSuccess = function (response) {
-  console.log('in onSignOutSuccess ', response)
+const onSignOutSuccess = function () {
+  console.log('in onSignOutSuccess ')
+  $('#message').show()
   $('#message').text('Sign out successful.')
   $('#sign-in').show()
   $('#sign-up').show()
   $('#sign-out').hide()
-  $('#message').hide()
-  $('#welcome-message').hide()
+  $('#game-board').hide()
   $('#start-game').hide()
-  $('#fun-message').hide()
-
 }
 
 const onSignOutFailure = function () {
