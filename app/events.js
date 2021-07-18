@@ -29,53 +29,67 @@ const onSignOut = function () {
 }
 
 // variables
-let gameBoard = ['', 'x', '', '', '', '', '', '', '']
-const emptyGameBoard = ['', '', '', '', '', '', '', '', '']
+const gameBoard = ['', '', '', '', '', '', '', '', '']
 let player
 let gameCounter = 0
-const turnCounter = 0
 let active = false
 
 const onStartGame = function () {
   console.log('in onStartGame')
-  clearGameBoard()
   active = true
   gameCounter++
+  clearGameBoard()
+  // checks game counter to set initial player
   if (gameCounter % 2 === 0) {
     player = 'O'
   } else {
     player = 'X'
   }
-
   // send new game to api goes here
-  while (active === true) {
-    console.log(gameBoard)
-    console.log(active)
-    $('.box').on('click', setGamePiece)
-    active = false
-  }
-}
-
-const clearGameBoard = function () {
-  gameBoard = emptyGameBoard
-  $('.box').text('')
-  return gameBoard
+  console.log(player)
+  console.log(gameBoard)
+  console.log(active)
+  console.log(gameCounter)
+  $('.box').on('click', setGamePiece)
 }
 
 const setGamePiece = function () {
-  const id = parseInt($(this).data('id'))
-  if (gameBoard[id] === '') {
-    gameBoard[id] = player
+  // changes id from string to int
+  const intId = parseInt($(this).data('id'))
+  console.log(intId)
+  // checks if square is empty
+  if (gameBoard[intId] === '') {
+    gameBoard[intId] = player
+    $(this).text(player)
     console.log(gameBoard)
-    if (player === 'X') {
-      player = 'O'
-    } else {
-      player = 'X'
-    }
-  } else { console.log('nope') }
+    // check for win
+    console.log(active)
+    // send data to api here
+    player = changePlayer(player)
+  } else {
+    console.log('nope')
+  }
 }
 
-
+// clears array and user interface
+const clearGameBoard = function () {
+  for (let i = 0; i < gameBoard.length; i++) {
+    gameBoard[i] = ''
+  }
+  $('.box').text('')
+  return gameBoard
+}
+// changes from x to o turn to turn
+const changePlayer = function (p) {
+  console.log('in changePlayer')
+  if (p === 'X') {
+    p = 'O'
+    return p
+  } else {
+    p = 'X'
+    return p
+  }
+}
 
 module.exports = {
   onSignUp,
