@@ -3,8 +3,22 @@
 ![Wireframe Laptop](https://i.imgur.com/09kLC99.jpg)
 
 User stories:
-1.	As a game player I would like to be able to play a game of tic tac to on my phone or computer.
-2.	As a user I would like to be able to sign up with just email and password, and not a lot of other stuff.
-3.	As a user I would like to be able to log into the game whenever on any device.
-4.	As a user I would like to be able to quit the game whenever I want.
+1. As a user I would like to be able to sign up with email and password
+2. As a user I would like to be able to sign in with email and password
+3. As a user I would like to be able to sign out
+4. As a game player I would like to be able to start a game of tic tac toe
+5. As a game player I would like to be to place a marker on tic tac toe board
+6. As a game player I would like to be to rotate turns between x and o, starting with x
+7. As a game player I would like to be notified if i choose an invalid space
+8. As a game player I would like to be notified of a win/loss/tie
+9. As a game player I would like to be notified if i choose a space after game is over
+10. As a game player I would like to be able to play again
+
+Logged Out User
+  sign up form
+  sign in form
+
+Logged In User
+  sign out button
+  play game button (when clicked displays the game board)
 

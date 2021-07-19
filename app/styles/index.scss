@@ -1,7 +1,13 @@
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+
+:root {
+  --background-color: rgb(190,165,165);
+  --form-background-color: rgb(37, 77, 37);
+  --line-color: black;
+}
 body {
-  background-color: rgb(190, 165, 165);
+  background-color: var(--background-color);
   font-family: 'Gloria Hallelujah', cursive;
 }
 h1{
@@ -14,6 +20,9 @@ h3 {
 }
 label {
   padding: 8px;
+}
+input, button {
+  border-radius: 25px;
 }
 #sign-up-submit-button {
   margin: 20px;
@@ -33,16 +42,16 @@ label {
   flex-direction: column;
   align-items: center;
   justify-content: top;
-  border: 10px solid black;
-  background-color: rgb(37, 77, 37);
-  color:rgb(190, 165, 165);
+  border: 10px solid var(--line-color);
+  background-color:var(--form-background-color);
+  color:var(--background-color);
   height: 80vmin;
 }
 .box {
   align-items: center;
-  border: 1px solid black;
-  color:rgb(190, 165, 165);
-  background-color: rgb(37, 77, 37);
+  border: 1px solid var(--line-color);
+  color:var(--background-color);
+  background-color:var(--form-background-color);
   display: flex;
   height: 180px;
   justify-content: center;

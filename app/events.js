@@ -49,12 +49,12 @@ const onStartGame = function () {
     player = 'X'
   }
   // send new game to api goes here
+  api.createGame()
   // creates event listeners on boxes
   eventListener.addEventListener('click', setGamePiece)
 }
 // for onStartGameFunction
 const setGamePiece = function (event) {
-
   moveCounter++
   const id = event.target.id
   console.log(id)
@@ -62,6 +62,7 @@ const setGamePiece = function (event) {
   if (gameBoard[id] === '') {
     gameBoard[id] = player
     // send game update to api goes here
+    api.updateGame()
     event.target.innerText = player
     win = checkForWin(gameBoard, player)
     if (moveCounter === 9) {
