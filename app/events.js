@@ -58,17 +58,20 @@ const onStartGame = function () {
 const setGamePiece = function (event) {
   moveCounter++
   const id = event.target.id
+  const intId = parseInt(id)
+  console.log(event.target.id)
   const stringId = id.toString()
   console.log(id)
-  // check if space is open
+  // check if space
   if (gameBoard[id] === '') {
     gameBoard[id] = player
     event.target.innerText = player
     win = checkForWin(gameBoard, player)
-   const lowerCasePlayer = player.toLowerCase()
-    // api
-    const cell = { stringId, lowerCasePlayer }
+    const lowerCasePlayer = player.toLowerCase()
+
+    const cell = { intId, lowerCasePlayer }
     const game = { cell, win }
+    console.log(game)
     api.updateGame(game)
     if (moveCounter === 9) {
       moveCounter = 0

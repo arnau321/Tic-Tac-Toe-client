@@ -41,7 +41,7 @@ const updateGame = function (game) {
   console.log('in update api')
   return $.ajax({
     url: config.apiUrl + '/games/' + store.id,
-    method: 'POST',
+    method: 'PATCH',
     headers: { Authorization: 'Bearer ' + store.token },
     data: game
   })
