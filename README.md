@@ -1,6 +1,6 @@
 
-![Wireframe Mobile](https://i.imgur.com/g0Fu5xO.jpg)
-![Wireframe Laptop](https://i.imgur.com/09kLC99.jpg)
+![Wireframe Mobile](https://i.imgur.com/15mBDGx.png)
+
 
 User stories:
 1. As a user I would like to be able to sign up with email and password

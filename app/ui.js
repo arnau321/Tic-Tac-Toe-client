@@ -26,7 +26,9 @@ const onSignInSuccess = function (response) {
   $('#fun-message').show()
   $('#welcome-message').text(`Shall we play a game ${response.user.email}?`)
   $('#fun-message').text('How about GLOBAL THERMONUCLEAR WAR?')
+  store._id = response.user._id
   store.token = response.user.token
+  console.log(store._id)
   $('#sign-in').trigger('reset')
   $('#message').hide()
   $('#sign-in').hide()
