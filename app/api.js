@@ -38,9 +38,9 @@ const createGame = function () {
 }
 
 const updateGame = function (game) {
-  console.log('in update api')
+  console.log('in update api', store.id)
   return $.ajax({
-    url: config.apiUrl + '/games/' + store.id,
+    url: config.apiUrl + '/games/' + store.game._id,
     method: 'PATCH',
     headers: { Authorization: 'Bearer ' + store.token },
     data: game
