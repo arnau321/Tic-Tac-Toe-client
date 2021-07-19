@@ -26,9 +26,33 @@ const signOut = function () {
   })
 }
 
+const createGame = function () {
+  console.log('in  create api')
+  /* return $.ajax({
+    url: 'https://tic-tac-toe-api-development.herokuapp.com/games',
+    method: 'POST',
+    game: {
+
+    }
+  }) */
+}
+
+const updateGame = function () {
+  console.log('in update api')
+  /* return $.ajax({
+    url: 'https://tic-tac-toe-api-development.herokuapp.com/games/' + _id,
+    method: 'POST',
+    game: {
+
+    }
+  }) */
+}
+
 module.exports = {
   signUp,
   signIn,
-  signOut
+  signOut,
+  createGame,
+  updateGame
 
 }

@@ -1,16 +1,16 @@
 'use strict'
 // array Of 9 fOr 9 squares in tic-tac-tOe bOard
-const gameBoard = ['X', '', '', '', '', '', '', '', '']
+ const gameBoard = ['X', '', '', '', '', '', '', '', '']
 const player = 'O'
 
 const checkForWin = function (arrayOfBoxes, player) {
   // horizontal wins
   if ((arrayOfBoxes[0] === arrayOfBoxes[1] && arrayOfBoxes[1] === arrayOfBoxes[2]) &&
-      (arrayOfBoxes[0] === player )) {
+      (arrayOfBoxes[0] === player)) {
     console.log('win h1')
     return true
   } else if ((arrayOfBoxes[3] === arrayOfBoxes[4] && arrayOfBoxes[4] === arrayOfBoxes[5]) &&
-      (arrayOfBoxes[3] === player )) {
+      (arrayOfBoxes[3] === player)) {
     console.log(' win h2')
     return true
   } else if ((arrayOfBoxes[6] === arrayOfBoxes[7] && arrayOfBoxes[7] === arrayOfBoxes[8]) &&
@@ -46,9 +46,7 @@ const checkForWin = function (arrayOfBoxes, player) {
 
 console.log(checkForWin(gameBoard, player))
 
-
 /*
-
 cOnst setGamePiece = function () {
   // changes id frOm string tO int
   cOnst intId = parseInt($(this).data('id'))
