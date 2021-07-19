@@ -50,6 +50,7 @@ const onStartGame = function () {
   }
   // send new game to api goes here
   api.createGame()
+    .then(ui.onCreateGameSuccess)
     .catch(ui.onCreateGameFailure)
   // creates event listeners on boxes
   eventListener.addEventListener('click', setGamePiece)
@@ -59,18 +60,21 @@ const setGamePiece = function (event) {
   moveCounter++
   const id = event.target.id
   const intId = parseInt(id)
-  console.log(event.target.id)
-  const stringId = id.toString()
-  console.log(id)
-  // check if space
+  // check if space empty
   if (gameBoard[id] === '') {
     gameBoard[id] = player
     event.target.innerText = player
     win = checkForWin(gameBoard, player)
     const lowerCasePlayer = player.toLowerCase()
-
-    const cell = { intId, lowerCasePlayer }
-    const game = { cell, win }
+    const game = {
+      game: {
+        cell: {
+          index: intId,
+          value: lowerCasePlayer
+        },
+        over: win
+      }
+    }
     console.log(game)
     api.updateGame(game)
     if (moveCounter === 9) {

@@ -58,8 +58,9 @@ const onSignOutFailure = function () {
   $('#message').text('Signed out failed')
 }
 
-const onCreateGameSuccess = function () {
-  console.log('in oCGS')
+const onCreateGameSuccess = function (response) {
+  store.game = response.game
+  console.log('in oCGS', response.game)
   gameCounter++
   // checks game counter to set initial player
   if (gameCounter % 2 === 0) {
