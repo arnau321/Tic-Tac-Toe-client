@@ -1,5 +1,5 @@
 const store = require('./store')
-const config = require('../config')
+const config = require('./config')
 
 const signUp = function (data) {
   console.log(data)
@@ -40,7 +40,7 @@ const createGame = function () {
 const updateGame = function (game) {
   console.log('in update api')
   return $.ajax({
-    url: config.apiUrl +  '/games/' + store.id,
+    url: config.apiUrl + '/games/' + store.id,
     method: 'POST',
     headers: { Authorization: 'Bearer ' + store.token },
     data: game
