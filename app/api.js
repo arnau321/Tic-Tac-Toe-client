@@ -28,24 +28,22 @@ const signOut = function () {
 
 const createGame = function () {
   console.log('in  create api')
-  /* return $.ajax({
+  return $.ajax({
     url: 'https://tic-tac-toe-api-development.herokuapp.com/games',
     method: 'POST',
-    game: {
-
-    }
-  }) */
+    headers: { Authorization: 'Bearer ' + store.token },
+    data: { }
+  })
 }
 
-const updateGame = function () {
+const updateGame = function (game) {
   console.log('in update api')
-  /* return $.ajax({
-    url: 'https://tic-tac-toe-api-development.herokuapp.com/games/' + _id,
+  return $.ajax({
+    url: 'https://tic-tac-toe-api-development.herokuapp.com/games/' + store.id,
     method: 'POST',
-    game: {
-
-    }
-  }) */
+    headers: { Authorization: 'Bearer ' + store.token },
+    data: game
+  })
 }
 
 module.exports = {
@@ -54,5 +52,4 @@ module.exports = {
   signOut,
   createGame,
   updateGame
-
 }

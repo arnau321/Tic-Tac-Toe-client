@@ -2,13 +2,15 @@
 curl "https://tic-tac-toe-api-development.herokuapp.com/games" \
   --include \
   --request POST \
-  --header "Content-Type: application/json" \
+  --header "Authorization: Bearer ${TOKEN}" \
   --data '{
-    "credentials": {
-      "cells": "["","","","","","","","",""]",
-      "over": "false"
-      "owner": "'"${TOKEN}"'"
-    }
+      "game": {
+        "cell": {
+          "index": 0,
+          "value": "x"
+        },
+      "over": false
+      }
   }'
 
 echo
