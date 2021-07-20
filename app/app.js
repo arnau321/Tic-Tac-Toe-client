@@ -20,4 +20,6 @@ $(() => {
   $('#cancel-button').on('click', authEvents.onCancelPasswordChange)
   $('#game-board').hide()
   $('#cancel-button').hide()
+  $('#show-number-of-games').hide()
+  $('#show-number-of-games').on('click', authEvents.onNumberOfGames)
 })

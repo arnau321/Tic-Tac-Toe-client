@@ -56,11 +56,21 @@ const changePassword = function (data) {
   })
 }
 
+const getNumberOfGames = function () {
+  console.log('in getNumberOfGames')
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: { Authorization: 'Bearer ' + store.token }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   createGame,
   updateGame,
-  changePassword
+  changePassword,
+  getNumberOfGames
 }

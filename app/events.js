@@ -150,6 +150,7 @@ const onChangePassword = function (event) {
   $('#welcome-message').hide()
   $('#start-game').hide()
   $('#game-board').hide()
+  $('#show-number-of-games').hide()
 }
 const onChangePasswordSubmit = function (event) {
   event.preventDefault()
@@ -167,8 +168,15 @@ const onCancelPasswordChange = function () {
   $('#cancel-button').hide()
   // show
   $('#start-game').show()
+  $('#show-number-of-games').show()
 }
 
+const onNumberOfGames = function () {
+  console.log('in onNumberOfGames')
+  api.getNumberOfGames()
+    .then(ui.onGetNumberOfGamesSuccess)
+    .catch(ui.onGetNumberOfGamesFailure)
+}
 module.exports = {
   onSignUp,
   onSignIn,
@@ -176,5 +184,6 @@ module.exports = {
   onStartGame,
   onChangePassword,
   onChangePasswordSubmit,
-  onCancelPasswordChange
+  onCancelPasswordChange,
+  onNumberOfGames
 }

@@ -21,6 +21,7 @@ const onSignInSuccess = function (response) {
   $('#change-password').show()
   $('#welcome-message').show()
   $('#fun-message').show()
+  $('#show-number-of-games').show()
   // hides
   $('#message').hide()
   $('#sign-in').hide()
@@ -49,6 +50,7 @@ const onSignOutSuccess = function () {
   $('#change-password').hide()
   $('#welcome-message').hide()
   $('#fun-message').hide()
+  $('#show-number-of-games').hide()
   // message
   $('#message').text('Sign out successful.')
 }
@@ -73,6 +75,7 @@ const onChangePasswordSubmitSuccess = function (response) {
   // shows
   $('#start-game').show()
   $('#message').show()
+  $('#show-number-of-games').show()
   // hides
   $('#change-password-form').hide()
   $('#cancel-button').hide()
@@ -86,6 +89,16 @@ const onChangePasswordSubmitFailure = function () {
   $('#message').show()
   $('#message').text('Password change failed, try again.')
 }
+const onGetNumberOfGamesSuccess = function (response) {
+  console.log('in onGetNumberOfGamesSuccess ', response)
+  const numberOfGames = response.games.length
+  console.log(numberOfGames)
+  $('#fun-message').show()
+  $('#fun-message').text(`Number of Games: ${numberOfGames.toString()}`)
+}
+const onGetNumberOfGamesFailure = function () {
+
+}
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -96,5 +109,7 @@ module.exports = {
   onCreateGameSuccess,
   onCreateGameFailure,
   onChangePasswordSubmitSuccess,
-  onChangePasswordSubmitFailure
+  onChangePasswordSubmitFailure,
+  onGetNumberOfGamesSuccess,
+  onGetNumberOfGamesFailure
 }
