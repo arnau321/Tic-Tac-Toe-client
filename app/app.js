@@ -5,11 +5,17 @@ const authEvents = require('./events')
 // require('./example')
 
 $(() => {
-  $('#start-game').hide()
-  $('#sign-out').hide()
-  $('#game-board').hide()
+  // buttons connected to seen before login
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
+  // buttons connected to seen after login
   $('#sign-out').on('click', authEvents.onSignOut)
+  $('#change-password').on('click', authEvents.onChangePassword)
   $('#start-game').on('click', authEvents.onStartGame)
+  $('#start-game').hide()
+  $('#sign-out').hide()
+  $('#change-password').hide()
+  $('#change-password-form').hide()
+  $('#change-password-form').on('submit', authEvents.onChangePasswordSubmit)
+  $('#game-board').hide()
 })

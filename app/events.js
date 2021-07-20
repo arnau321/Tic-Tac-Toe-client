@@ -23,7 +23,6 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
   api.signIn(data)
     .then(ui.onSignInSuccess)
     .catch(ui.onSignInFailure)
@@ -39,6 +38,7 @@ const onStartGame = function () {
   $('#message-bottom').hide()
   $('#fun-message').hide()
   $('#welcome-message').hide()
+  $('#message').hide()
   $('#game-board').show()
   gameCounter++
   clearGameBoard()
@@ -138,10 +138,30 @@ const checkForWin = function (arrayOfBoxes, player) {
   }
 }
 
+const onChangePassword = function (event) {
+  $('#change-password-email').text(store.userEmail)
+  $('#change-password-form').show()
+  $('#fun-message').hide()
+  $('#message').hide()
+  $('#welcome-message').hide()
+  console.log('in onChangePassword')
+  $('#start-game').hide()
+}
+const onChangePasswordSubmit = function (event) {
+  event.preventDefault()
+  console.log('in onChangePasswordSubmit', event)
+  const data = getFormFields(event.target)
+  console.log(data)
+  api.changePassword(data)
+    .then(ui.onChangePasswordSubmitSuccess)
+    .catch(ui.onChangePasswordSubmitFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
-  onStartGame
-
+  onStartGame,
+  onChangePassword,
+  onChangePasswordSubmit
 }

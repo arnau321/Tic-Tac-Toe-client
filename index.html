@@ -12,9 +12,14 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <!--sign out button-->
+      <!--sign out and change password buttons-->
+
+        <div class="container" id="top-bar">
+          <button id="change-password" type="button">Change-Password</button>
+
+          <button id="sign-out" type="button">Sign Out</button>
+        </div>
       <div class="top">
-        <button id="sign-out" type="button">Sign Out</button>
         <h1>TIC-TAC-TOE</h1>
         <!--messages to user-->
         <h3 id="message"></h3>
@@ -22,6 +27,7 @@
         <h3 id="fun-message"></h3>
       </div>
 
+      <!--First page container forms enroll and sign-in-->
       <div class="container" id="enroll">
         <div class="row">
           <!--Enroll form-->
@@ -47,6 +53,17 @@
         </form>
       </div>
     </div>
+    <!--After login change password form-->
+    <form id="change-password-form" class="form">
+      <h2>Change Password</h2>
+      <h3 id="change-password-email"></h3>
+      <label>Current Password</label>
+      <input name="passwords[old]" type="password">
+      <label>New Password</label>
+      <input name="passwords[new]" type="password">
+      <input id="change-password-submit-button" type="submit" value="Change-Password">
+    </form>
+
 
     <!--start game button-->
     <div class="container">
