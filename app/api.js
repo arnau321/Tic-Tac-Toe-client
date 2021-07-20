@@ -38,7 +38,6 @@ const createGame = function () {
 }
 
 const updateGame = function (game) {
-  console.log('in update api', store.id)
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game._id,
     method: 'PATCH',
@@ -47,10 +46,21 @@ const updateGame = function (game) {
   })
 }
 
+const changePassword = function (data) {
+  console.log('in changePassword', data)
+  return $.ajax({
+    url: config.apiUrl + '/change-password',
+    method: 'PATCH',
+    headers: { Authorization: 'Bearer ' + store.token },
+    data: data
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   createGame,
-  updateGame
+  updateGame,
+  changePassword
 }
