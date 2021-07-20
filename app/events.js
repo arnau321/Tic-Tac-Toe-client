@@ -139,22 +139,34 @@ const checkForWin = function (arrayOfBoxes, player) {
 }
 
 const onChangePassword = function (event) {
+  console.log('in onChangePassword')
   $('#change-password-email').text(store.userEmail)
+  // show
+  $('#cancel-button').show()
   $('#change-password-form').show()
+  // hides
   $('#fun-message').hide()
   $('#message').hide()
   $('#welcome-message').hide()
-  console.log('in onChangePassword')
   $('#start-game').hide()
+  $('#game-board').hide()
 }
 const onChangePasswordSubmit = function (event) {
   event.preventDefault()
+
   console.log('in onChangePasswordSubmit', event)
   const data = getFormFields(event.target)
   console.log(data)
   api.changePassword(data)
     .then(ui.onChangePasswordSubmitSuccess)
     .catch(ui.onChangePasswordSubmitFailure)
+}
+const onCancelPasswordChange = function () {
+  // hides
+  $('#change-password-form').hide()
+  $('#cancel-button').hide()
+  // show
+  $('#start-game').show()
 }
 
 module.exports = {
@@ -163,5 +175,6 @@ module.exports = {
   onSignOut,
   onStartGame,
   onChangePassword,
-  onChangePasswordSubmit
+  onChangePasswordSubmit,
+  onCancelPasswordChange
 }
