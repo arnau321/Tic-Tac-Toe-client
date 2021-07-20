@@ -70,14 +70,19 @@ const onCreateGameFailure = function () {
 const onChangePasswordSubmitSuccess = function (response) {
   console.log('in onChangePasswordSubmitSuccess')
   $('#change-password-form').trigger('reset')
-  $('#message').show()
-  $('#message').text(store.userEmail + ' password successfully changed.')
-  $('#change-password-form').hide()
-  $('#game-board').hide()
+  // shows
   $('#start-game').show()
+  $('#message').show()
+  // hides
+  $('#change-password-form').hide()
+  $('#cancel-button').hide()
+  $('#game-board').hide()
+  // message
+  $('#message').text(store.userEmail + ' password successfully changed.')
 }
 const onChangePasswordSubmitFailure = function () {
   console.log('in onChangePasswordSubmitFailure')
+  $('#change-password-form').trigger('reset')
   $('#message').show()
   $('#message').text('Password change failed, try again.')
 }

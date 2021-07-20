@@ -17,5 +17,7 @@ $(() => {
   $('#change-password').hide()
   $('#change-password-form').hide()
   $('#change-password-form').on('submit', authEvents.onChangePasswordSubmit)
+  $('#cancel-button').on('click', authEvents.onCancelPasswordChange)
   $('#game-board').hide()
+  $('#cancel-button').hide()
 })
