@@ -68,9 +68,10 @@ input, button {
     margin-top: 0;
     height: 100%;
   }
-  input[type=submit], input[type=button] {
-    width: 8em;  height: 4em;
-
+  input[type=submit] {
+    width: 8em;
+    height: 4em;
+    background-color: white;
   }
   .box {
     font-size: 70px;
@@ -84,10 +85,15 @@ input, button {
     width: 35%;
     margin: 0;
     font-size: auto;
+    background-color: white;
+  }
+  #start-game{
+    background-color: white;
   }
   h1 {
     font-size: 35px;
     margin-top: 25px;
   }
+
 
 }
