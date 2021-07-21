@@ -4,7 +4,12 @@ This project was interesting because it practices creating an interactive user e
 
 ## IMPORTANT LINKS
 - [Deployment link](https://arnau321.github.io/Tic-Tac-Toe-client/)
-- 
+
+## SCREENSHOTS
+![Login Screen](https://i.imgur.com/kF9S2fT.jpg)
+![Start Screen](https://i.imgur.com/gzWYL0E.jpg)
+![Game Screen](https://i.imgur.com/BrMSUqJ.jpg)
+![Change Password Screen](https://i.imgur.com/c6ljHhK.jpg)
 ## PLANNING STORY
 I started this project like any other problem.  I read the documentation completely once, then read them again while taking notes.  I continuously refer back to the documentation to keep it fresh in my mind.  
 In this case I was creating a game.  So I played a couple of games on paper using the notes from the documentation to get an idea of the flow of the game which would lead to the flow of my code.  I broke the game down into sections: create user, login, game logic, user interactions, user interface, connecting to server.
