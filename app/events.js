@@ -35,12 +35,13 @@ const onSignOut = function () {
 
 const onStartGame = function () {
   // hides
-  $('#message-bottom').hide()
+ // $('#message-bottom').hide()
   $('#fun-message').hide()
   $('#welcome-message').hide()
   $('#message').hide()
   // show
   $('#game-board').show()
+  $('#message-bottom').text('Game started.  Good Luck')
   gameCounter++
   clearGameBoard()
   // checks game counter to set initial player
