@@ -49,20 +49,20 @@ console.log(checkForWin(gameBoard, player))
 /*
 cOnst setGamePiece = function () {
   // changes id frOm string tO int
-  cOnst intId = parseInt($(this).data('id'))
+  const intId = parseInt($(this).data('id'))
   console.log(intId)
   // checks if square is empty
-  if (gameBOard[intId] === '') {
-    gameBOard[intId] = player
+  if (gameBoard[intId] === '') {
+    gameBoard[intId] = player
     $(this).text(player)
-    console.log(gameBOard)
-    // check fOr win
+    console.log(gameBoard)
+    // check for win
     console.log(active)
-    // send data tO api here
+    // send data to api here
     player = changePlayer(player)
   } else {
-    console.log('nOpe')
+    console.log('nope')
   }
 }
-console.log(checkFOrWin(gameBOard))
+console.log(checkFOrWin(gameBoard))
 */

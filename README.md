@@ -4,6 +4,10 @@ This project was interesting because it practices creating an interactive user e
 
 ## IMPORTANT LINKS
 - [Deployment link](https://arnau321.github.io/Tic-Tac-Toe-client/)
+## SET UP STEPS
+- Fork and clone this repository.
+- Run npm install from terminal if necessary.
+- Run grunt serve from terminal to spin up the local severer.
 
 ## SCREENSHOTS
 ![Login Screen](https://i.imgur.com/kF9S2fT.jpg)
