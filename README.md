@@ -1,4 +1,4 @@
-### APPLICATION TITLE: DESCRIPTION
+### TIC-TAC-TOE: DESCRIPTION
 This application lets the user play Tic-Tac-Toe against themselves.  The user can create an account and log in and play Tic-Tac-Toe multiple times. The games alternate from starting with X for the first game then the next game starting with O. The user can log out at any time.
 This project was interesting because it practices creating an interactive user experience and connecting the game to an external server to save the games.
 
