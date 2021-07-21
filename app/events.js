@@ -35,7 +35,6 @@ const onSignOut = function () {
 
 const onStartGame = function () {
   // hides
- // $('#message-bottom').hide()
   $('#fun-message').hide()
   $('#welcome-message').hide()
   $('#message').hide()
@@ -50,12 +49,12 @@ const onStartGame = function () {
   } else {
     player = 'X'
   }
-  // send new game to api goes here
   api.createGame()
     .then(ui.onCreateGameSuccess)
     .catch(ui.onCreateGameFailure)
-  // creates event listeners on boxes
+  // event listener for end of game removed
   gameOverEventListener.removeEventListener('click', gameOver)
+  // event listener for adding game pieces added
   eventListener.addEventListener('click', setGamePiece)
 }
 // for onStartGameFunction
@@ -73,7 +72,7 @@ const setGamePiece = function (event) {
     win = checkForWin(gameBoard, player)
     // change to lower case due to server requirements
     const lowerCasePlayer = player.toLowerCase()
-    // game form due to api requirements
+    // creates game form due to api requirements
     const game = {
       game: {
         cell: {
@@ -151,12 +150,13 @@ const checkForWin = function (arrayOfBoxes, player) {
     return false
   }
 }
+// for setGamePiece function
 const gameOver = function () {
   $('#message-bottom').text('Game is over.  Start new game')
 }
 
 const onChangePassword = function (event) {
-  console.log('in onChangePassword')
+  // email address shown in form
   $('#change-password-email').text(store.userEmail)
   // show
   $('#cancel-button').show()
@@ -171,8 +171,6 @@ const onChangePassword = function (event) {
 }
 const onChangePasswordSubmit = function (event) {
   event.preventDefault()
-
-  console.log('in onChangePasswordSubmit', event)
   const data = getFormFields(event.target)
   console.log(data)
   api.changePassword(data)
@@ -189,7 +187,6 @@ const onCancelPasswordChange = function () {
 }
 
 const onNumberOfGames = function () {
-  console.log('in onNumberOfGames')
   api.getNumberOfGames()
     .then(ui.onGetNumberOfGamesSuccess)
     .catch(ui.onGetNumberOfGamesFailure)
