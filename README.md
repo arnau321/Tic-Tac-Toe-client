@@ -20,7 +20,7 @@ In this case I was creating a game.  So I played a couple of games on paper usin
 Then from those categories I would break those down even further.  I try to get the problem down to its most basic elements. I would then work through each element, with lots of testing. Then I attach it to  the larger project.  Then test and retest until the element and project work as expected.  When completed I released it to my peers to test, and fix what they can break.
 
 ## WIREFRAME
-![Wireframe Mobile](https://i.imgur.com/15mBDGx.png)
+![Wireframe Mobile](https://i.imgur.com/JOyIjWG.png)
 
 ## USER STORIES
 
