@@ -14,7 +14,6 @@ const eventListener = document.getElementById('listen')
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
   api.signUp(data)
     .then(ui.onSignUpSuccess)
     .catch(ui.onSignUpFailure)
@@ -28,17 +27,18 @@ const onSignIn = function (event) {
     .catch(ui.onSignInFailure)
 }
 const onSignOut = function () {
-  console.log('in onSignOut')
   api.signOut()
     .then(ui.onSignOutSuccess)
     .catch(ui.onSignOutFailure)
 }
 
 const onStartGame = function () {
+  // hides
   $('#message-bottom').hide()
   $('#fun-message').hide()
   $('#welcome-message').hide()
   $('#message').hide()
+  // show
   $('#game-board').show()
   gameCounter++
   clearGameBoard()
@@ -57,15 +57,20 @@ const onStartGame = function () {
 }
 // for onStartGameFunction
 const setGamePiece = function (event) {
+  $('message-bottom').hide()
   moveCounter++
   const id = event.target.id
   const intId = parseInt(id)
   // check if space empty
   if (gameBoard[id] === '') {
+    // sets x or o to array position
     gameBoard[id] = player
+    // set x or o to html box
     event.target.innerText = player
     win = checkForWin(gameBoard, player)
+    // change to lower case due to api requirements
     const lowerCasePlayer = player.toLowerCase()
+    // game form due to api requirements
     const game = {
       game: {
         cell: {
@@ -75,7 +80,6 @@ const setGamePiece = function (event) {
         over: win
       }
     }
-    console.log(game)
     api.updateGame(game)
     if (moveCounter === 9) {
       moveCounter = 0
@@ -92,7 +96,7 @@ const setGamePiece = function (event) {
       // change player
       player = player === 'X' ? 'O' : 'X'
     }
-  }
+  } else { $('message-bottom').text('Nope')
 }
 // for onStartGame function
 // clears array and user interface
@@ -140,6 +144,7 @@ const checkForWin = function (arrayOfBoxes, player) {
 
 const onChangePassword = function (event) {
   console.log('in onChangePassword')
+  // shows users email in form
   $('#change-password-email').text(store.userEmail)
   // show
   $('#cancel-button').show()
@@ -154,8 +159,6 @@ const onChangePassword = function (event) {
 }
 const onChangePasswordSubmit = function (event) {
   event.preventDefault()
-
-  console.log('in onChangePasswordSubmit', event)
   const data = getFormFields(event.target)
   console.log(data)
   api.changePassword(data)
@@ -172,7 +175,6 @@ const onCancelPasswordChange = function () {
 }
 
 const onNumberOfGames = function () {
-  console.log('in onNumberOfGames')
   api.getNumberOfGames()
     .then(ui.onGetNumberOfGamesSuccess)
     .catch(ui.onGetNumberOfGamesFailure)

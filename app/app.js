@@ -5,21 +5,21 @@ const authEvents = require('./events')
 // require('./example')
 
 $(() => {
-  // buttons connected to seen before login
-  $('#sign-up').on('submit', authEvents.onSignUp)
-  $('#sign-in').on('submit', authEvents.onSignIn)
-  // buttons connected to seen after login
-  $('#sign-out').on('click', authEvents.onSignOut)
-  $('#change-password').on('click', authEvents.onChangePassword)
-  $('#start-game').on('click', authEvents.onStartGame)
+  // hides
   $('#start-game').hide()
   $('#sign-out').hide()
   $('#change-password').hide()
   $('#change-password-form').hide()
-  $('#change-password-form').on('submit', authEvents.onChangePasswordSubmit)
-  $('#cancel-button').on('click', authEvents.onCancelPasswordChange)
   $('#game-board').hide()
   $('#cancel-button').hide()
   $('#show-number-of-games').hide()
+  // submit and click events
+  $('#sign-up').on('submit', authEvents.onSignUp)
+  $('#sign-in').on('submit', authEvents.onSignIn)
+  $('#sign-out').on('click', authEvents.onSignOut)
+  $('#change-password').on('click', authEvents.onChangePassword)
+  $('#start-game').on('click', authEvents.onStartGame)
+  $('#change-password-form').on('submit', authEvents.onChangePasswordSubmit)
+  $('#cancel-button').on('click', authEvents.onCancelPasswordChange)
   $('#show-number-of-games').on('click', authEvents.onNumberOfGames)
 })

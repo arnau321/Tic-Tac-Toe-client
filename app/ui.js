@@ -10,6 +10,7 @@ const onSignUpFailure = function () {
   $('#sign-up').trigger('reset')
 }
 const onSignInSuccess = function (response) {
+  // clears form fields after submit
   $('#sign-in').trigger('reset')
   // saved information from response
   store.id = response.user._id
@@ -33,12 +34,10 @@ const onSignInSuccess = function (response) {
 }
 
 const onSignInFailure = function () {
-  console.log('in onSignInFailure')
   $('#message').text('Signed in failed')
   $('#sign-in').trigger('reset')
 }
 const onSignOutSuccess = function () {
-  console.log('in onSignOutSuccess ')
   // shows
   $('#message').show()
   $('#sign-in').show()
@@ -56,21 +55,20 @@ const onSignOutSuccess = function () {
 }
 
 const onSignOutFailure = function () {
-  console.log('in onSignOutFailure')
+  $('#message').show()
   $('#message').text('Signed out failed')
 }
 
 const onCreateGameSuccess = function (response) {
   store.game = response.game
-  console.log('in oCGS', response.game)
 }
 
 const onCreateGameFailure = function () {
-  console.log('in oCGF')
+  $('#message').show()
+  $('#message').text('Create game failed')
 }
 
 const onChangePasswordSubmitSuccess = function (response) {
-  console.log('in onChangePasswordSubmitSuccess')
   $('#change-password-form').trigger('reset')
   // shows
   $('#start-game').show()
@@ -84,20 +82,21 @@ const onChangePasswordSubmitSuccess = function (response) {
   $('#message').text(store.userEmail + ' password successfully changed.')
 }
 const onChangePasswordSubmitFailure = function () {
-  console.log('in onChangePasswordSubmitFailure')
   $('#change-password-form').trigger('reset')
   $('#message').show()
   $('#message').text('Password change failed, try again.')
 }
 const onGetNumberOfGamesSuccess = function (response) {
-  console.log('in onGetNumberOfGamesSuccess ', response)
+  // get array length to determine number of games played
   const numberOfGames = response.games.length
-  console.log(numberOfGames)
+  // show
   $('#fun-message').show()
+  // message
   $('#fun-message').text(`Number of Games: ${numberOfGames.toString()}`)
 }
 const onGetNumberOfGamesFailure = function () {
-
+  $('#fun-message').show()
+  $('#message').text('Cannot get number of games.')
 }
 module.exports = {
   onSignUpSuccess,

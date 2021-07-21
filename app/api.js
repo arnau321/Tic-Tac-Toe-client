@@ -28,7 +28,6 @@ const signOut = function () {
 }
 
 const createGame = function () {
-  console.log('in  create api')
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
@@ -47,7 +46,6 @@ const updateGame = function (game) {
 }
 
 const changePassword = function (data) {
-  console.log('in changePassword', data)
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
@@ -57,7 +55,6 @@ const changePassword = function (data) {
 }
 
 const getNumberOfGames = function () {
-  console.log('in getNumberOfGames')
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'GET',
