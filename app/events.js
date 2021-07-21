@@ -10,6 +10,7 @@ let gameCounter = 0
 let win = false
 let moveCounter = 0
 const eventListener = document.getElementById('listen')
+const gameOverEventListener = document.getElementById('listen')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -53,22 +54,23 @@ const onStartGame = function () {
     .then(ui.onCreateGameSuccess)
     .catch(ui.onCreateGameFailure)
   // creates event listeners on boxes
+  gameOverEventListener.removeEventListener('click', gameOver)
   eventListener.addEventListener('click', setGamePiece)
 }
 // for onStartGameFunction
 const setGamePiece = function (event) {
-  $('message-bottom').hide()
   moveCounter++
   const id = event.target.id
   const intId = parseInt(id)
   // check if space empty
   if (gameBoard[id] === '') {
+    $('#message-bottom').hide()
     // sets x or o to array position
     gameBoard[id] = player
     // set x or o to html box
     event.target.innerText = player
     win = checkForWin(gameBoard, player)
-    // change to lower case due to api requirements
+    // change to lower case due to server requirements
     const lowerCasePlayer = player.toLowerCase()
     // game form due to api requirements
     const game = {
@@ -84,11 +86,13 @@ const setGamePiece = function (event) {
     if (moveCounter === 9) {
       moveCounter = 0
       eventListener.removeEventListener('click', setGamePiece)
+      gameOverEventListener.addEventListener('click', gameOver)
       $('#message-bottom').show()
       $('#message-bottom').text('Tie')
     }
     if (win === true) {
       eventListener.removeEventListener('click', setGamePiece)
+      gameOverEventListener.addEventListener('click', gameOver)
       moveCounter = 0
       $('#message-bottom').show()
       $('#message-bottom').text(player + ' Wins!!!')
@@ -96,8 +100,13 @@ const setGamePiece = function (event) {
       // change player
       player = player === 'X' ? 'O' : 'X'
     }
-  } else { $('message-bottom').text('Nope')
+  } else {
+    // if click on box that is already occupied
+    $('#message-bottom').show()
+    $('#message-bottom').text('Nope')
+  }
 }
+
 // for onStartGame function
 // clears array and user interface
 const clearGameBoard = function () {
@@ -141,10 +150,12 @@ const checkForWin = function (arrayOfBoxes, player) {
     return false
   }
 }
+const gameOver = function () {
+  $('#message-bottom').text('Game is over.  Start new game')
+}
 
 const onChangePassword = function (event) {
   console.log('in onChangePassword')
-  // shows users email in form
   $('#change-password-email').text(store.userEmail)
   // show
   $('#cancel-button').show()
@@ -159,6 +170,8 @@ const onChangePassword = function (event) {
 }
 const onChangePasswordSubmit = function (event) {
   event.preventDefault()
+
+  console.log('in onChangePasswordSubmit', event)
   const data = getFormFields(event.target)
   console.log(data)
   api.changePassword(data)
@@ -175,6 +188,7 @@ const onCancelPasswordChange = function () {
 }
 
 const onNumberOfGames = function () {
+  console.log('in onNumberOfGames')
   api.getNumberOfGames()
     .then(ui.onGetNumberOfGamesSuccess)
     .catch(ui.onGetNumberOfGamesFailure)

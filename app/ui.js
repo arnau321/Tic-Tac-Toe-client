@@ -89,6 +89,8 @@ const onChangePasswordSubmitFailure = function () {
 const onGetNumberOfGamesSuccess = function (response) {
   // get array length to determine number of games played
   const numberOfGames = response.games.length
+  // hide
+  $('#message').hide()
   // show
   $('#fun-message').show()
   // message
