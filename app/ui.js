@@ -50,6 +50,8 @@ const onSignOutSuccess = function () {
   $('#welcome-message').hide()
   $('#fun-message').hide()
   $('#show-number-of-games').hide()
+  $('#change-password-form').hide()
+  $('#cancel-button').hide()
   // message
   $('#message').text('Sign out successful.')
 }
