@@ -6,7 +6,7 @@ const onSignUpSuccess = function (response) {
 }
 
 const onSignUpFailure = function () {
-  $('#message').text('Signed up failed')
+  $('#message').text('Sign up failed')
   $('#sign-up').trigger('reset')
 }
 const onSignInSuccess = function (response) {
