@@ -83,8 +83,10 @@ const setGamePiece = function (event) {
       }
     }
     api.updateGame(game)
+    // checks for empty space in array
     if (moveCounter === 9) {
       moveCounter = 0
+
       eventListener.removeEventListener('click', setGamePiece)
       gameOverEventListener.addEventListener('click', gameOver)
       $('#message-bottom').show()
@@ -102,6 +104,7 @@ const setGamePiece = function (event) {
     }
   } else {
     // if click on box that is already occupied
+    moveCounter--
     $('#message-bottom').show()
     $('#message-bottom').text('Nope')
   }
@@ -172,7 +175,6 @@ const onChangePassword = function (event) {
 const onChangePasswordSubmit = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
   api.changePassword(data)
     .then(ui.onChangePasswordSubmitSuccess)
     .catch(ui.onChangePasswordSubmitFailure)
