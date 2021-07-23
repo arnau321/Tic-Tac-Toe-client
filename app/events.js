@@ -42,7 +42,6 @@ const onStartGame = function () {
   // show
   $('#game-board').show()
   $('#message-bottom').text('Game started.  Good Luck')
-  console.log(gameCounter)
   gameCounter++
   clearGameBoard()
   // checks game counter to set initial player
