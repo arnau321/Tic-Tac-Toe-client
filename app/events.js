@@ -28,7 +28,6 @@ const onSignIn = function (event) {
     .catch(ui.onSignInFailure)
 }
 const onSignOut = function () {
-  gameCounter = 0
   api.signOut()
     .then(ui.onSignOutSuccess)
     .catch(ui.onSignOutFailure)
@@ -42,8 +41,9 @@ const onStartGame = function () {
   // show
   $('#game-board').show()
   $('#message-bottom').text('Game started.  Good Luck')
+  console.log('count0', gameCounter)
   gameCounter++
-  clearGameBoard()
+  console.log('count1 ', gameCounter)
   // checks game counter to set initial player
   if (gameCounter % 2 === 0) {
     player = 'O'
