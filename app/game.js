@@ -47,8 +47,9 @@ const checkForWin = function (arrayOfBoxes, player) {
 console.log(checkForWin(gameBoard, player))
 
 /*
-cOnst setGamePiece = function () {
-  // changes id frOm string tO int
+const setGamePiece = function (event) {
+  moveCounter++
+  // changes id from string to int
   const intId = parseInt($(this).data('id'))
   console.log(intId)
   // checks if square is empty
@@ -64,5 +65,5 @@ cOnst setGamePiece = function () {
     console.log('nope')
   }
 }
-console.log(checkFOrWin(gameBoard))
+console.log(checkForWin(gameBoard))
 */
